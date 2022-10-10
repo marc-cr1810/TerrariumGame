@@ -1,0 +1,12 @@
+[submodule "Terrarium/vendor/GLFW"]
+	path = Terrarium/vendor/GLFW
+	url = https://github.com/marc-cr1810/glfw.git
+[submodule "Terrarium/vendor/spdlog"]
+	path = Terrarium/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
+[submodule "Terrarium/vendor/glm"]
+	path = Terrarium/vendor/glm
+	url = https://github.com/g-truc/glm.git
+[submodule "Terrarium/vendor/imgui"]
+	path = Terrarium/vendor/imgui
+	url = https://github.com/marc-cr1810/imgui.git
