@@ -3,6 +3,7 @@
 #include "Terrarium/Core/Base.h"
 
 #include "Terrarium/Core/Window.h"
+#include "Terrarium/Core/LayerStack.h"
 #include "Terrarium/Core/Timestep.h"
 
 #include "Terrarium/Events/Event.h"
@@ -39,6 +40,9 @@ namespace Terrarium
 
 		void OnEvent(Event& e);
 
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* overlay);
+
 		Window& GetWindow() { return *m_Window; }
 
 		void Close();
@@ -55,6 +59,7 @@ namespace Terrarium
 		Scope<Window> m_Window;
 		bool m_Running = true;
 		bool m_Minimized = false;
+		LayerStack m_LayerStack;
 		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* s_Instance;

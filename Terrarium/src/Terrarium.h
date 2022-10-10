@@ -5,6 +5,7 @@
 #include "Terrarium/Core/Base.h"
 
 #include "Terrarium/Core/Application.h"
+#include "Terrarium/Core/Layer.h"
 #include "Terrarium/Core/Log.h"
 #include "Terrarium/Core/Assert.h"
 #include "Terrarium/Core/Timestep.h"

@@ -1,13 +1,15 @@
 #include <Terrarium.h>
 #include <Terrarium/Core/EntryPoint.h>
 
+#include "SandboxLayer.h"
+
 class SandboxApp : public Terrarium::Application
 {
 public:
 	SandboxApp(const Terrarium::ApplicationSpecification& spec)
 		: Terrarium::Application(spec)
 	{
-		TE_INFO("Hello World!");
+		PushLayer(new SandboxLayer());
 	}
 };
 
