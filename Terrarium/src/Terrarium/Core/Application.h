@@ -2,6 +2,9 @@
 
 #include "Terrarium/Core/Base.h"
 
+#include "Terrarium/Core/Window.h"
+#include "Terrarium/Core/Timestep.h"
+
 #include "Terrarium/Events/Event.h"
 #include "Terrarium/Events/ApplicationEvent.h"
 
@@ -34,11 +37,25 @@ namespace Terrarium
 		Application(const ApplicationSpecification& specification);
 		virtual ~Application();
 
+		void OnEvent(Event& e);
+
+		Window& GetWindow() { return *m_Window; }
+
+		void Close();
+
 		static Application& Get() { return *s_Instance; }
 
 		const ApplicationSpecification& GetSpecification() const { return m_Specification; }
 	private:
+		void Run();
+		bool OnWindowClose(WindowCloseEvent& e);
+		bool OnWindowResized(WindowResizeEvent& e);
+	private:
 		ApplicationSpecification m_Specification;
+		Scope<Window> m_Window;
+		bool m_Running = true;
+		bool m_Minimized = false;
+		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* s_Instance;
 		friend int ::main(int argc, char** argv);

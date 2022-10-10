@@ -3,9 +3,10 @@
 #include "Terrarium/Core/PlatformDetection.h"
 
 #ifdef AC_PLATFORM_WINDOWS
-	#ifndef NOMINMAX
-		#define NOMINMAX
-	#endif
+#ifndef NOMINMAX
+// See github.com/skypjack/entt/wiki/Frequently-Asked-Questions#warning-c4003-the-min-the-max-and-the-macro
+#define NOMINMAX
+#endif
 #endif
 
 #include <iostream>
@@ -24,6 +25,8 @@
 #include "Terrarium/Core/Base.h"
 #include "Terrarium/Core/Log.h"
 
-#ifdef TE_PLATFORM_WINDOWS
-	#include <Windows.h>
+#include "Terrarium/Debug/Instrumentor.h"
+
+#ifdef AC_PLATFORM_WINDOWS
+#include <Windows.h>
 #endif

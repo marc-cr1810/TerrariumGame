@@ -11,7 +11,7 @@ public:
 	}
 };
 
-Terrarium::Application* Terrarium::CreateApplication(Terrarium::ApplicationCommandLineArgs args)
+Terrarium::Application* Terrarium::CreateApplication(ApplicationCommandLineArgs args)
 {
 	Terrarium::ApplicationSpecification spec;
 	spec.Name = "Terrarium Sandbox Demo";
