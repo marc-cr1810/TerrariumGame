@@ -20,6 +20,10 @@ public:
 private:
 	bool OnKeyPressed(KeyPressedEvent& e);
 	bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
-private:
 
+	bool OnWindowResized(WindowResizeEvent& e);
+private:
+	Camera m_Camera;
+	glm::mat4 m_CameraTransform;
+	float m_AspectRatio = 1.7778f;
 };

@@ -99,6 +99,7 @@ namespace Terrarium
 
 		{
 			Timer timer;
+			TE_CORE_TRACE("Compiling shader - {0}", filepath);
 			CompileOrGetVulkanBinaries(shaderSources);
 			CompileOrGetOpenGLBinaries();
 			CreateProgram();
