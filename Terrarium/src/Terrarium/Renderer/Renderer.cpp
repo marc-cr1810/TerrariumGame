@@ -1,6 +1,8 @@
 #include "tepch.h"
 #include "Terrarium/Renderer/Renderer.h"
 
+#include "Terrarium/Renderer/Renderer2D.h"
+
 namespace Terrarium
 {
 	Scope<Renderer::SceneData> Renderer::s_SceneData = CreateScope<Renderer::SceneData>();
@@ -10,11 +12,12 @@ namespace Terrarium
 		TE_PROFILE_FUNCTION();
 
 		RenderCommand::Init();
+		Renderer2D::Init();
 	}
 
 	void Renderer::Shutdown()
 	{
-
+		Renderer2D::Shutdown();
 	}
 
 	void Renderer::OnWindowResize(uint32_t width, uint32_t height)

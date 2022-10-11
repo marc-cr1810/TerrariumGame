@@ -16,9 +16,12 @@
 
 // -------- Renderer --------
 #include "Terrarium/Renderer/Renderer.h"
+#include "Terrarium/Renderer/Renderer2D.h"
 #include "Terrarium/Renderer/RenderCommand.h"
 
 #include "Terrarium/Renderer/Buffer.h"
 #include "Terrarium/Renderer/Shader.h"
+#include "Terrarium/Renderer/Texture.h"
+#include "Terrarium/Renderer/SubTexture2D.h"
 #include "Terrarium/Renderer/VertexArray.h"
 //---------------------------

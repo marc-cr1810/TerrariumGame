@@ -12,9 +12,14 @@ public:
 	SandboxLayer();
 	virtual ~SandboxLayer() = default;
 
+	virtual void OnAttach() override;
+	virtual void OnDetach() override;
+
 	void OnUpdate(Timestep ts) override;
 	void OnEvent(Event& e) override;
 private:
 	bool OnKeyPressed(KeyPressedEvent& e);
 	bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
+private:
+
 };
