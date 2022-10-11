@@ -19,5 +19,6 @@
 #include "Terrarium/Renderer/RenderCommand.h"
 
 #include "Terrarium/Renderer/Buffer.h"
+#include "Terrarium/Renderer/Shader.h"
 #include "Terrarium/Renderer/VertexArray.h"
 //---------------------------
