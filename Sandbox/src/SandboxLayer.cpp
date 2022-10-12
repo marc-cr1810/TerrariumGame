@@ -6,20 +6,12 @@ SandboxLayer::SandboxLayer()
 
 void SandboxLayer::OnAttach()
 {
-	// Camera orthographic projection
-	float orthoSize = 10.0f;
-	float orthoNear = -1.0f, orthoFar = 1.0f;
-
-	float orthoLeft = -orthoSize * m_AspectRatio * 0.5f;
-	float orthoRight = orthoSize * m_AspectRatio * 0.5f;
-	float orthoBottom = -orthoSize * 0.5f;
-	float orthoTop = orthoSize * 0.5f;
-
-	m_Camera = Camera(glm::ortho(orthoLeft, orthoRight, orthoBottom, orthoTop, orthoNear, orthoFar));
+	m_Camera = SceneCamera();
+	m_Camera.SetOrthographic(10.0f, -1.0f, 1.0f);
+	m_Camera.SetViewportSize(1280, 720);
 
 	// Camera transform
 	glm::vec3 translation = { 0.0f, 0.0f, 0.0f };
-
 	m_CameraTransform = glm::translate(glm::mat4(1.0f), translation);
 }
 
@@ -34,7 +26,7 @@ void SandboxLayer::OnUpdate(Timestep ts)
 	RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
 	RenderCommand::Clear();
 
-	Renderer2D::BeginScene(m_Camera, m_CameraTransform);
+	Renderer2D::BeginScene((Camera)m_Camera, m_CameraTransform);
 
 	Renderer2D::DrawQuad(glm::translate(glm::mat4(1.0f), { 0.0f, 0.0f, 0.0f }), { 1.0f, 0.0f, 1.0f, 1.0f });
 
@@ -59,18 +51,7 @@ bool SandboxLayer::OnMouseButtonPressed(MouseButtonPressedEvent& e)
 
 bool SandboxLayer::OnWindowResized(WindowResizeEvent& e)
 {
-	m_AspectRatio = (float)e.GetWidth() / (float)e.GetHeight();
-
-	// If the window is resized, change the aspect ratio and recalculate the projection matrix
-	float orthoSize = 10.0f;
-	float orthoNear = -1.0f, orthoFar = 1.0f;
-
-	float orthoLeft = -orthoSize * m_AspectRatio * 0.5f;
-	float orthoRight = orthoSize * m_AspectRatio * 0.5f;
-	float orthoBottom = -orthoSize * 0.5f;
-	float orthoTop = orthoSize * 0.5f;
-
-	m_Camera = Camera(glm::ortho(orthoLeft, orthoRight, orthoBottom, orthoTop, orthoNear, orthoFar));
+	m_Camera.SetViewportSize(e.GetWidth(), e.GetHeight());
 
 	return true;
 }
