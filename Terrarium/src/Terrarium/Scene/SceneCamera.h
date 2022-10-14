@@ -18,6 +18,8 @@ namespace Terrarium
 		float GetOrthographicFarClip() const { return m_OrthographicFar; }
 		void SetOrthographicFarClip(float farClip) { m_OrthographicFar = farClip; RecalculateProjection(); }
 
+		float GetAspectRatio() const { return m_AspectRatio; }
+
 		void SetViewportSize(uint32_t width, uint32_t height);
 	private:
 		void RecalculateProjection();

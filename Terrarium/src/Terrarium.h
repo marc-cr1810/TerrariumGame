@@ -14,6 +14,8 @@
 #include "Terrarium/Core/KeyCodes.h"
 #include "Terrarium/Core/MouseCodes.h"
 
+#include "Terrarium/ImGui/ImGuiLayer.h"
+
 // -------- Renderer --------
 #include "Terrarium/Renderer/Renderer.h"
 #include "Terrarium/Renderer/Renderer2D.h"

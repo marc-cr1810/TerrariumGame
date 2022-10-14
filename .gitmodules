@@ -10,3 +10,4 @@
 [submodule "Terrarium/vendor/imgui"]
 	path = Terrarium/vendor/imgui
 	url = https://github.com/marc-cr1810/imgui.git
+	branch = docking

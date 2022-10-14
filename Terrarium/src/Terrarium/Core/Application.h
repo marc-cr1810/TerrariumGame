@@ -9,6 +9,8 @@
 #include "Terrarium/Events/Event.h"
 #include "Terrarium/Events/ApplicationEvent.h"
 
+#include "Terrarium/ImGui/ImGuiLayer.h"
+
 int main(int argc, char** argv);
 
 namespace Terrarium
@@ -47,6 +49,8 @@ namespace Terrarium
 
 		void Close();
 
+		ImGuiLayer* GetImGuiLayer() { return m_ImGuiLayer; }
+
 		static Application& Get() { return *s_Instance; }
 
 		const ApplicationSpecification& GetSpecification() const { return m_Specification; }
@@ -57,6 +61,7 @@ namespace Terrarium
 	private:
 		ApplicationSpecification m_Specification;
 		Scope<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		bool m_Minimized = false;
 		LayerStack m_LayerStack;
