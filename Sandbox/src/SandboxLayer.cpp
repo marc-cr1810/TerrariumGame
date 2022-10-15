@@ -44,7 +44,7 @@ void SandboxLayer::OnUpdate(Timestep ts)
 	if (Input::IsMouseButtonPressed(Mouse::ButtonLeft))
 	{
 		glm::vec2 pos = GetOpenGLPos(Input::GetMousePosition());
-		Cell* cell = m_World.GetCell({ pos.x, -pos.y });
+		Cell* cell = m_World.GetCell(pos);
 		if (cell != nullptr)
 			cell->SetMaterial(m_SelectedMaterial);
 	}
