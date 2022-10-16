@@ -9,5 +9,6 @@ public:
 		: Material(ID)
 	{
 		m_Color = glm::vec4{ 0.46f, 0.33f, 0.17f, 1.0f };
+		m_Mass = 5.0f;
 	}
 };

@@ -33,7 +33,7 @@ private:
 	int m_ScreenWidth, m_ScreenHeight;
 	float m_UpdateTime = 0;
 
-	World m_World = World(8, 8);
+	World m_World = World(64, 32);
 
 	Material* m_SelectedMaterial = Materials::Dirt;
 };

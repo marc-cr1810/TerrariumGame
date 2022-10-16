@@ -35,7 +35,8 @@ void World::Update(glm::vec3 cameraPos, glm::vec2 size)
 	{
 		for (uint32_t x = minX; x < maxX; x++)
 		{
-			m_Chunks[x + y * m_Width]->Update();
+			if (m_Chunks[x + y * m_Width]->GetActiveCells() > 0)
+				m_Chunks[x + y * m_Width]->Update();
 		}
 	}
 }

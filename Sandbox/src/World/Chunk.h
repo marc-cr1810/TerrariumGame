@@ -4,7 +4,7 @@
 
 #include "Cell.h"
 
-#define CELLS_SIZE 16
+#define CELLS_SIZE 8
 
 extern class World;
 
@@ -22,10 +22,15 @@ public:
 	Cell* GetCell(uint32_t x, uint32_t y);
 	void SetCell(Cell* cell, uint32_t x, uint32_t y);
 
+	void IncActiveCells() { m_ActiveCells++; }
+	void DecActiveCells() { m_ActiveCells--; }
+
 	World* GetWorld() const { return m_World; }
 	glm::vec2 GetPosition() const { return m_Position; }
+	uint32_t GetActiveCells() const { return m_ActiveCells; }
 private:
 	Cell* m_Cells[CELLS_SIZE * CELLS_SIZE];
 	glm::vec2 m_Position = { 0, 0 };
 	World* m_World;
+	uint32_t m_ActiveCells = 0;
 };

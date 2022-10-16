@@ -46,11 +46,14 @@ void SandboxLayer::OnUpdate(Timestep ts)
 		glm::vec2 pos = GetOpenGLPos(Input::GetMousePosition());
 		Cell* cell = m_World.GetCell(pos);
 		if (cell != nullptr)
-			cell->SetMaterial(m_SelectedMaterial);
+		{
+			if (cell->GetMaterial() == Materials::Air || m_SelectedMaterial == Materials::Air)
+				cell->SetMaterial(m_SelectedMaterial);
+		}
 	}
 
 	m_UpdateTime += ts;
-	if (m_UpdateTime >= 1 / 60)
+	if (m_UpdateTime >= 1 / 120)
 	{
 		m_World.Update(m_CameraPosition, { (m_Camera.GetOrthographicSize() + 2.0f) * m_Camera.GetAspectRatio(), m_Camera.GetOrthographicSize() + 2.0f });
 		m_UpdateTime = 0;
@@ -93,6 +96,10 @@ void SandboxLayer::OnImGuiRender()
 	bool sand = m_SelectedMaterial == Materials::Sand;
 	if (ImGui::Checkbox("Sand", &sand))
 		m_SelectedMaterial = Materials::Sand;
+
+	bool water = m_SelectedMaterial == Materials::Water;
+	if (ImGui::Checkbox("Water", &water))
+		m_SelectedMaterial = Materials::Water;
 
 	ImGui::End();
 }

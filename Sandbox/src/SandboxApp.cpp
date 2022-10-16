@@ -2,6 +2,7 @@
 #include <Terrarium/Core/EntryPoint.h>
 
 #include "SandboxLayer.h"
+#include "Utils/Random.h"
 
 class SandboxApp : public Terrarium::Application
 {
@@ -15,6 +16,9 @@ public:
 
 Terrarium::Application* Terrarium::CreateApplication(ApplicationCommandLineArgs args)
 {
+	Random::Init();
+	srand(time(NULL));
+
 	Terrarium::ApplicationSpecification spec;
 	spec.Name = "Terrarium Sandbox Demo";
 	spec.CommandLineArgs = args;

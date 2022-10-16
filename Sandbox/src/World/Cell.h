@@ -26,8 +26,12 @@ public:
 
 	Cell* Copy(Cell* other);
 	void CopyFrom(Cell* other);
+
+	void SetActive(bool active);
+	bool GetActive();
 private:
 	Material* m_Material = Materials::Null;
 	Chunk* m_Chunk;
 	glm::vec2 m_Position = { 0.0f, 0.0f };
+	bool m_Active;
 };
