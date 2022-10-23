@@ -19,7 +19,12 @@ public:
 	Cell* GetCell(glm::vec2 position) const;
 	Cell* GetCell(glm::vec2 chunkPos, glm::vec2 cellPos) const;
 private:
+	void OnResize(uint32_t width, uint32_t height);
+private:
 	Chunk **m_Chunks;
 	uint32_t m_Width;
 	uint32_t m_Height;
+
+	Terrarium::Ref<Terrarium::Texture2D> m_WorldImage;
+	uint32_t* m_ImageData = nullptr;
 };

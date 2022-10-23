@@ -4,7 +4,7 @@
 
 #include "Cell.h"
 
-#define CELLS_SIZE 8
+#define CELLS_SIZE 16
 
 extern class World;
 

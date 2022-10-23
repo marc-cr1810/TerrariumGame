@@ -12,7 +12,6 @@ public:
 	Cell() = default;
 
 	void Update(glm::vec2 chunkPos, glm::vec2 cellPos);
-	void Render(glm::vec2 chunkPos, glm::vec2 cellPos);
 
 	void SetMaterial(Material* material);
 	void SetChunk(Chunk* chunk, glm::vec2 position) { m_Chunk = chunk; m_Position = position; }

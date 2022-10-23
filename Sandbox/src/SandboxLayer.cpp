@@ -53,7 +53,7 @@ void SandboxLayer::OnUpdate(Timestep ts)
 	}
 
 	m_UpdateTime += ts;
-	if (m_UpdateTime >= 1 / 120)
+	//if (m_UpdateTime >= 1 / 120)
 	{
 		m_World.Update(m_CameraPosition, { (m_Camera.GetOrthographicSize() + 2.0f) * m_Camera.GetAspectRatio(), m_Camera.GetOrthographicSize() + 2.0f });
 		m_UpdateTime = 0;
@@ -66,6 +66,8 @@ void SandboxLayer::OnUpdate(Timestep ts)
 	Renderer2D::BeginScene((Camera)m_Camera, m_CameraTransform);
 
 	m_World.Render(m_CameraPosition, { (m_Camera.GetOrthographicSize() + 2.0f) * m_Camera.GetAspectRatio(), m_Camera.GetOrthographicSize() + 2.0f});
+
+	Renderer2D::DrawQuad(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f)), { 1.0f, 1.0f, 1.0f, 1.0f });
 
 	Renderer2D::EndScene();
 }
@@ -137,5 +139,5 @@ glm::vec2 SandboxLayer::GetOpenGLPos(glm::vec2 mousePosition)
 	float x = -(orthoWidth - (Input::GetMouseX() / m_ScreenWidth) * (m_Camera.GetOrthographicSize() * m_Camera.GetAspectRatio()));
 	float y = orthoHeight - ((Input::GetMouseY() / m_ScreenHeight) * m_Camera.GetOrthographicSize());
 
-	return { x + m_CameraPosition.x, y + m_CameraPosition.y };
+	return { x + m_CameraPosition.x - 0.5f, y + m_CameraPosition.y - 0.5f };
 }
