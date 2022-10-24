@@ -4,6 +4,7 @@
 #include "GameLayer.h"
 
 #include "Core/Textures.h"
+#include "World/Level/Material/Materials.h"
 
 class TerrariumGame : public Terrarium::Application
 {
@@ -14,6 +15,7 @@ public:
 		GetWindow().SetVSync(false);
 
 		Textures::Init();
+		Materials::Init();
 
 		PushLayer(new GameLayer());
 	}

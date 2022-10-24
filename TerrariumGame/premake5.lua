@@ -15,6 +15,7 @@ project "TerrariumGame"
 
 	includedirs
 	{
+		"src",
 		"%{wks.location}/Terrarium/vendor/spdlog/include",
 		"%{wks.location}/Terrarium/src",
 		"%{wks.location}/Terrarium/vendor",

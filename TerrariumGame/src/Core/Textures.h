@@ -11,7 +11,7 @@ class Textures
 public:
 	static void Init();
 
-	static Ref<SubTexture2D> GetTexture(std::string texture) { return s_Registry.GetValue(texture); }
+	static Ref<SubTexture2D> Get(std::string texture) { return s_Registry.GetValue(texture); }
 public:
 	static Registry<Ref<SubTexture2D>> s_Registry;
 
