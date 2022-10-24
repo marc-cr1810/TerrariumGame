@@ -1,9 +1,9 @@
 include "./vendor/premake/premake_customization/solution_items.lua"
 include "Dependencies.lua"
 
-workspace "Terrarium"
+workspace "TerrariumGame"
 	architecture "x86_64"
-	startproject "Sandbox"
+	startproject "TerrariumGame"
 
 	configurations
 	{
@@ -35,6 +35,4 @@ group "Core"
 	include "Terrarium"
 group ""
 
-group "Misc"
-	include "Sandbox"
-group ""
+include "TerrariumGame"
