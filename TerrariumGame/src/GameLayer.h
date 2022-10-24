@@ -31,9 +31,4 @@ private:
 	glm::vec3 m_CameraPosition = { 0.0f, 0.0f, 0.0f };
 	glm::mat4 m_CameraTransform;
 	int m_ScreenWidth, m_ScreenHeight;
-
-	Ref<Texture2D> m_GrassDirtTextures;
-	Ref<SubTexture2D> m_Dirt;
-
-	Registry<Ref<SubTexture2D>> m_Registry = Registry<Ref<SubTexture2D>>("textures");
 };

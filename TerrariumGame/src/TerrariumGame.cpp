@@ -3,6 +3,8 @@
 
 #include "GameLayer.h"
 
+#include "Core/Textures.h"
+
 class TerrariumGame : public Terrarium::Application
 {
 public:
@@ -10,6 +12,8 @@ public:
 		: Terrarium::Application(spec)
 	{
 		GetWindow().SetVSync(false);
+
+		Textures::Init();
 
 		PushLayer(new GameLayer());
 	}

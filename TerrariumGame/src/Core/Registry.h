@@ -28,7 +28,6 @@ public:
 			TE_ERROR("Could not find resource \"{0}\" in {1}", name, this->ToString());
 			return T();
 		}
-
 		return pos->second;
 	}
 
