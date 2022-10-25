@@ -9,6 +9,11 @@ class Chunk
 {
 public:
 	Chunk();
-public:
+
+	void Render();
+
+	Tile GetTile(int x, int y) const { return m_Tiles[x][y]; }
+	void SetTile(int x, int y, Tile tile) { m_Tiles[x][y] = tile; }
+private:
 	Tile m_Tiles[CHUNK_TILES_WIDTH][CHUNK_TILES_HEIGHT];
 };

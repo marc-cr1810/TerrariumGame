@@ -13,14 +13,30 @@ GameLayer::GameLayer()
 void GameLayer::OnAttach()
 {
 	m_Camera = SceneCamera();
-	m_Camera.SetOrthographic(10.0f, -1.0f, 1.0f);
+	m_Camera.SetOrthographic(20.0f, -1.0f, 1.0f);
 	m_Camera.SetViewportSize(m_ScreenWidth = 1280, m_ScreenHeight = 720);
 
 	// Camera transform
 	m_CameraTransform = glm::translate(glm::mat4(1.0f), m_CameraPosition);
 
-
-	m_TestChunk.m_Tiles[8][8] = Tiles::Get("dirt");
+	for (int y = 0; y < CHUNK_TILES_HEIGHT; y++)
+	{
+		for (int x = 0; x < CHUNK_TILES_WIDTH; x++)
+		{
+			if (y == 10)
+			{
+				m_TestChunk.SetTile(x, y, Tiles::Get("grass"));
+			}
+			else if (y > 8 && y < 10)
+			{
+				m_TestChunk.SetTile(x, y, Tiles::Get("dirt"));
+			}
+			else if (y <= 8)
+			{
+				m_TestChunk.SetTile(x, y, Tiles::Get("stone"));
+			}
+		}
+	}
 }
 
 void GameLayer::OnDetach()
@@ -52,15 +68,7 @@ void GameLayer::OnUpdate(Timestep ts)
 
 	Renderer2D::BeginScene((Camera)m_Camera, m_CameraTransform);
 
-	Tile air = Tiles::Get("air");
-	Tile dirt = Tiles::Get("dirt");
-	Tile grass = Tiles::Get("grass");
-	Tile stone = Tiles::Get("stone");
-
-	air.Render({ 0.0f, 2.0f, 0.0f });
-	dirt.Render();
-	grass.Render({ 0.0f, 1.0f, 0.0f });
-	stone.Render({ 0.0, -1.0f, 0.0f });
+	m_TestChunk.Render();
 
 	Renderer2D::EndScene();
 }
