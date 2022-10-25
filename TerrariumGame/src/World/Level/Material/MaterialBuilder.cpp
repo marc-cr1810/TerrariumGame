@@ -2,7 +2,7 @@
 
 Material* MaterialBuilder::Build()
 {
-	return new Material(this->m_Flammable, this->m_Solid, this->m_Liquid, this->m_Air);
+	return new Material(this->m_Flammable, this->m_Solid, this->m_Liquid);
 }
 
 MaterialBuilder* MaterialBuilder::Flammable()
@@ -20,11 +20,5 @@ MaterialBuilder* MaterialBuilder::NonSolid()
 MaterialBuilder* MaterialBuilder::Liquid()
 {
 	m_Liquid = true;
-	return this;
-}
-
-MaterialBuilder* MaterialBuilder::Air()
-{
-	m_Air = true;
 	return this;
 }

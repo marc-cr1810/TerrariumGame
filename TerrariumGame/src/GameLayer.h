@@ -3,7 +3,7 @@
 #include <Terrarium.h>
 #include <Terrarium/Scene/SceneCamera.h>
 
-#include "Core/Registry.h"
+#include "World/Level/Chunk.h"
 
 using namespace Terrarium;
 
@@ -31,4 +31,6 @@ private:
 	glm::vec3 m_CameraPosition = { 0.0f, 0.0f, 0.0f };
 	glm::mat4 m_CameraTransform;
 	int m_ScreenWidth, m_ScreenHeight;
+
+	Chunk m_TestChunk;
 };
