@@ -8,6 +8,6 @@ class Materials
 public:
 	static void Init();
 	static Material* Get(std::string material) { return s_Registry.GetValue(material); }
-public:
+private:
 	static Registry<Material*> s_Registry;
 };

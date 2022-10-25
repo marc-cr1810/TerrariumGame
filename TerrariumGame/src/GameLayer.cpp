@@ -3,7 +3,7 @@
 #include <imgui/imgui.h>
 
 #include "Core/Textures.h"
-#include "World/Level/Material/Materials.h"
+#include "World/Level/Tile/Tiles.h"
 
 GameLayer::GameLayer()
 	: Layer("GameLayer")
@@ -18,8 +18,6 @@ void GameLayer::OnAttach()
 
 	// Camera transform
 	m_CameraTransform = glm::translate(glm::mat4(1.0f), m_CameraPosition);
-
-	Material* m = Materials::Get("air");
 }
 
 void GameLayer::OnDetach()
@@ -51,8 +49,12 @@ void GameLayer::OnUpdate(Timestep ts)
 
 	Renderer2D::BeginScene((Camera)m_Camera, m_CameraTransform);
 
-	Renderer2D::DrawQuad(glm::translate(glm::mat4(1.0f), { 0.0f, 1.0f, 0.0f }), Textures::Get("grass"));
-	Renderer2D::DrawQuad(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f)), Textures::Get("dirt"));
+
+	Tile dirt = Tiles::Get("dirt");
+	Tile grass = Tiles::Get("grass");
+
+	dirt.Render();
+	grass.Render({ 0.0f, 1.0f, 0.0f });
 
 	Renderer2D::EndScene();
 }

@@ -4,7 +4,9 @@
 #include "GameLayer.h"
 
 #include "Core/Textures.h"
+
 #include "World/Level/Material/Materials.h"
+#include "World/Level/Tile/Tiles.h"
 
 class TerrariumGame : public Terrarium::Application
 {
@@ -16,6 +18,7 @@ public:
 
 		Textures::Init();
 		Materials::Init();
+		Tiles::Init();
 
 		PushLayer(new GameLayer());
 	}
