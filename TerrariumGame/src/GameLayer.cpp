@@ -2,10 +2,7 @@
 
 #include <imgui/imgui.h>
 
-#include "Core/Textures.h"
-#include "World/Level/Tile/Tiles.h"
-
-#include "World/Level/Tile/TilePos.h"
+#include "World/Level/Generation/FlatLevelGenerator.h"
 
 GameLayer::GameLayer()
 	: Layer("GameLayer")
@@ -21,24 +18,9 @@ void GameLayer::OnAttach()
 	// Camera transform 
 	m_CameraTransform = glm::translate(glm::mat4(1.0f), m_CameraPosition);
 
-	for (int y = 0; y < LEVEL_CHUNKS_HEIGHT * CHUNK_TILES_HEIGHT; y++)
-	{
-		for (int x = 0; x < LEVEL_CHUNKS_WIDTH * CHUNK_TILES_WIDTH; x++)
-		{
-			if (y == 10)
-			{
-				m_Level.SetTile(TilePos(x, y), Tiles::Get("grass"));
-			}
-			else if (y > 8 && y < 10)
-			{
-				m_Level.SetTile(TilePos(x, y), Tiles::Get("dirt"));
-			}
-			else if (y <= 8)
-			{
-				m_Level.SetTile(TilePos(x, y), Tiles::Get("stone"));
-			}
-		}
-	}
+	m_Level.SetGenerator(new FlatLevelGenerator(4));
+
+	m_Level.Generate();
 }
 
 void GameLayer::OnDetach()

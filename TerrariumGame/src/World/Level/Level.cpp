@@ -2,7 +2,12 @@
 
 Level::Level()
 {
+	m_Generator = new Generator();
+}
 
+void Level::Generate()
+{
+	m_Generator->Generate(this);
 }
 
 Chunk Level::GetChunkAt(TilePos tilePos) const
