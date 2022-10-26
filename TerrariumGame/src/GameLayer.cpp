@@ -5,6 +5,8 @@
 #include "Core/Textures.h"
 #include "World/Level/Tile/Tiles.h"
 
+#include "World/Level/Tile/TilePos.h"
+
 GameLayer::GameLayer()
 	: Layer("GameLayer")
 {
@@ -19,21 +21,21 @@ void GameLayer::OnAttach()
 	// Camera transform 
 	m_CameraTransform = glm::translate(glm::mat4(1.0f), m_CameraPosition);
 
-	for (int y = 0; y < CHUNK_TILES_HEIGHT; y++)
+	for (int y = 0; y < LEVEL_CHUNKS_HEIGHT * CHUNK_TILES_HEIGHT; y++)
 	{
-		for (int x = 0; x < CHUNK_TILES_WIDTH; x++)
+		for (int x = 0; x < LEVEL_CHUNKS_WIDTH * CHUNK_TILES_WIDTH; x++)
 		{
 			if (y == 10)
 			{
-				m_TestChunk.SetTile(x, y, Tiles::Get("grass"));
+				m_Level.SetTile(TilePos(x, y), Tiles::Get("grass"));
 			}
 			else if (y > 8 && y < 10)
 			{
-				m_TestChunk.SetTile(x, y, Tiles::Get("dirt"));
+				m_Level.SetTile(TilePos(x, y), Tiles::Get("dirt"));
 			}
 			else if (y <= 8)
 			{
-				m_TestChunk.SetTile(x, y, Tiles::Get("stone"));
+				m_Level.SetTile(TilePos(x, y), Tiles::Get("stone"));
 			}
 		}
 	}
@@ -46,7 +48,7 @@ void GameLayer::OnDetach()
 
 void GameLayer::OnUpdate(Timestep ts)
 {
-	float speed = 4.0f * ts;
+	float speed = 5.0f * ts;
 	glm::vec3 velocity = { 0.0f, 0.0f, 0.0f };
 
 	if (Input::IsKeyPressed(Key::W))

@@ -8,7 +8,7 @@ Chunk::Chunk()
 	{
 		for (int x = 0; x < CHUNK_TILES_WIDTH; x++)
 		{
-			m_Tiles[x][y] = Tiles::Get("stone");
+			m_Tiles[x][y] = Tiles::Get("air");
 		}
 	}
 }
