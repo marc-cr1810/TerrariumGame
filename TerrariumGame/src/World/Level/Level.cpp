@@ -3,6 +3,17 @@
 Level::Level()
 {
 	m_Generator = new Generator();
+
+	srand(time(NULL));
+	m_Seed = rand();
+	srand(m_Seed);
+}
+
+Level::Level(uint32_t seed)
+	: m_Seed(seed)
+{
+	m_Generator = new Generator();
+	srand(m_Seed);
 }
 
 void Level::Generate()

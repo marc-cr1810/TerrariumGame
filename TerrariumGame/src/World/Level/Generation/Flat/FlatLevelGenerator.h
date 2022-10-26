@@ -1,5 +1,5 @@
 #pragma once
-#include "Generator.h"
+#include "World/Level/Generation/Generator.h"
 
 class FlatLevelGenerator : public Generator
 {

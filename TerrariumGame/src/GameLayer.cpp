@@ -2,7 +2,7 @@
 
 #include <imgui/imgui.h>
 
-#include "World/Level/Generation/FlatLevelGenerator.h"
+#include "World/Level/Generation/LevelGenerator.h"
 
 GameLayer::GameLayer()
 	: Layer("GameLayer")
@@ -18,7 +18,7 @@ void GameLayer::OnAttach()
 	// Camera transform 
 	m_CameraTransform = glm::translate(glm::mat4(1.0f), m_CameraPosition);
 
-	m_Level.SetGenerator(new FlatLevelGenerator(4));
+	m_Level.SetGenerator(new LevelGenerator());
 
 	m_Level.Generate();
 }
