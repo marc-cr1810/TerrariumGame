@@ -16,7 +16,7 @@ void GameLayer::OnAttach()
 	m_Camera.SetOrthographic(20.0f, -1.0f, 1.0f);
 	m_Camera.SetViewportSize(m_ScreenWidth = 1280, m_ScreenHeight = 720);
 
-	// Camera transform
+	// Camera transform 
 	m_CameraTransform = glm::translate(glm::mat4(1.0f), m_CameraPosition);
 
 	for (int y = 0; y < CHUNK_TILES_HEIGHT; y++)
@@ -68,7 +68,7 @@ void GameLayer::OnUpdate(Timestep ts)
 
 	Renderer2D::BeginScene((Camera)m_Camera, m_CameraTransform);
 
-	m_TestChunk.Render();
+	m_Level.Render();
 
 	Renderer2D::EndScene();
 }

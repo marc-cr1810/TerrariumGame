@@ -10,7 +10,7 @@ class Chunk
 public:
 	Chunk();
 
-	void Render();
+	void Render(int x = 0, int y = 0);
 
 	Tile GetTile(int x, int y) const { return m_Tiles[x][y]; }
 	void SetTile(int x, int y, Tile tile) { m_Tiles[x][y] = tile; }

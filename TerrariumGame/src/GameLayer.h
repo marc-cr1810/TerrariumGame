@@ -3,7 +3,7 @@
 #include <Terrarium.h>
 #include <Terrarium/Scene/SceneCamera.h>
 
-#include "World/Level/Chunk.h"
+#include "World/Level/Level.h"
 
 using namespace Terrarium;
 
@@ -32,5 +32,6 @@ private:
 	glm::mat4 m_CameraTransform;
 	int m_ScreenWidth, m_ScreenHeight;
 
+	Level m_Level;
 	Chunk m_TestChunk;
 };
